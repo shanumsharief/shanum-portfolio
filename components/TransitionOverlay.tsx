@@ -7,6 +7,7 @@ export default function TransitionOverlay() {
 
   const fired = useRef(false);
   const skipTransition = useRef(false);
+  const userInteracted = useRef(false);
 
   useEffect(() => {
     const about = document.getElementById("about");
@@ -21,16 +22,30 @@ export default function TransitionOverlay() {
 
     let finishTimer: ReturnType<typeof setTimeout> | null = null;
     let snapTimer: ReturnType<typeof setTimeout> | null = null;
-    let skipTimer: ReturnType<typeof setTimeout> | null = null;
 
-    /*
-     * When the user intentionally navigates to another section,
-     * don't trigger the Home → About transition while the smooth
-     * scroll passes through About.
-     */
+    // Only count actual user interaction as scrolling.
+    const markUserInteraction = () => {
+      userInteracted.current = true;
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const scrollKeys = [
+        "ArrowDown",
+        "ArrowUp",
+        "PageDown",
+        "PageUp",
+        " ",
+        "Home",
+        "End",
+      ];
+
+      if (scrollKeys.includes(event.key)) {
+        userInteracted.current = true;
+      }
+    };
+
     const handleNavigationClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
-
       const link = target?.closest("a[href]");
 
       if (!link) return;
@@ -38,26 +53,22 @@ export default function TransitionOverlay() {
       const href = link.getAttribute("href");
 
       if (
-        href === "#projects" ||
         href === "#skills" ||
+        href === "#projects" ||
         href === "#contact"
       ) {
         skipTransition.current = true;
+        fired.current = true;
+        return;
+      }
 
-        if (skipTimer) {
-          clearTimeout(skipTimer);
-        }
-
-        skipTimer = setTimeout(() => {
-          skipTransition.current = false;
-        }, 2000);
+      if (href === "#home") {
+        skipTransition.current = false;
+        fired.current = false;
+        userInteracted.current = false;
+        return;
       }
     };
-
-    document.addEventListener(
-      "click",
-      handleNavigationClick
-    );
 
     const lockScroll = () => {
       document.documentElement.style.overflow = "hidden";
@@ -70,9 +81,10 @@ export default function TransitionOverlay() {
     };
 
     const handleScroll = () => {
-      if (fired.current) return;
+      // Ignore browser refresh / scroll restoration / programmatic scrolling.
+      if (!userInteracted.current) return;
 
-      // Intentional navigation — do nothing.
+      if (fired.current) return;
       if (skipTransition.current) return;
 
       if (about.getBoundingClientRect().top < window.innerHeight) {
@@ -82,14 +94,9 @@ export default function TransitionOverlay() {
 
         lockScroll();
 
-        /*
-         * Wait until the dark overlay completely covers
-         * the screen, then move to the exact About position.
-         */
         snapTimer = setTimeout(() => {
           const aboutTop =
-            about.getBoundingClientRect().top +
-            window.scrollY;
+            about.getBoundingClientRect().top + window.scrollY;
 
           window.scrollTo({
             top: aboutTop,
@@ -102,41 +109,39 @@ export default function TransitionOverlay() {
           unlockScroll();
         }, 1600);
 
-        window.removeEventListener(
-          "scroll",
-          handleScroll
-        );
+        window.removeEventListener("scroll", handleScroll);
       }
     };
 
-    window.addEventListener(
-      "scroll",
-      handleScroll,
-      { passive: true }
-    );
+    // Real user scroll/input
+    window.addEventListener("wheel", markUserInteraction, {
+      passive: true,
+    });
+
+    window.addEventListener("touchstart", markUserInteraction, {
+      passive: true,
+    });
+
+    window.addEventListener("pointerdown", markUserInteraction, {
+      passive: true,
+    });
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    document.addEventListener("click", handleNavigationClick);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
+      window.removeEventListener("wheel", markUserInteraction);
+      window.removeEventListener("touchstart", markUserInteraction);
+      window.removeEventListener("pointerdown", markUserInteraction);
+      window.removeEventListener("keydown", handleKeyDown);
 
-      document.removeEventListener(
-        "click",
-        handleNavigationClick
-      );
+      document.removeEventListener("click", handleNavigationClick);
+      window.removeEventListener("scroll", handleScroll);
 
-      if (snapTimer) {
-        clearTimeout(snapTimer);
-      }
-
-      if (finishTimer) {
-        clearTimeout(finishTimer);
-      }
-
-      if (skipTimer) {
-        clearTimeout(skipTimer);
-      }
+      if (snapTimer) clearTimeout(snapTimer);
+      if (finishTimer) clearTimeout(finishTimer);
 
       unlockScroll();
     };
@@ -144,9 +149,7 @@ export default function TransitionOverlay() {
 
   return (
     <div
-      className={`transition-overlay ${
-        playing ? "playing" : ""
-      }`}
+      className={`transition-overlay ${playing ? "playing" : ""}`}
       aria-hidden="true"
     >
       <span className="overlay-line">

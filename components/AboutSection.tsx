@@ -87,10 +87,10 @@ export default function AboutSection() {
             <h2>Contact</h2>
 
             <a
-              href="mailto:your-email@example.com"
+              href="mailto:shanumsharief@gmail.com"
               className="contact-link"
             >
-              your-email@example.com
+              shanumsharief@gmail.com
             </a>
 
             <a
