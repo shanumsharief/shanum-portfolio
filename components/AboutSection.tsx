@@ -94,7 +94,7 @@ export default function AboutSection() {
             </a>
 
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/shanumsharief"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-link"
