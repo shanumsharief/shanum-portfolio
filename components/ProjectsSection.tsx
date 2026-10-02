@@ -9,9 +9,14 @@ type Project = {
   image: string;
   tagline: string;
   description: string;
+  shortDescription: string;
   focus: string;
   tech: string[];
   status: string;
+  github?: string;
+  demo?: string;
+  metrics?: string;
+  demoImage?: string;
 };
 
 const projects: Project[] = [
@@ -19,65 +24,67 @@ const projects: Project[] = [
     number: "01",
     title: "Non-invasive\nHemoglobin Estimation",
     year: "2026",
-    image: "/images/projects/hemoglobin.jpg",
+    image: "/images/projects/hemoglobin-hardware.png",
+
     tagline:
       "A PPG-based system for estimating hemoglobin without conventional blood sampling.",
+
     description:
       "A multi-wavelength PPG system exploring red and infrared signals, signal processing, feature extraction, and ensemble regression for non-invasive hemoglobin estimation.",
+
+    shortDescription:
+      "ESP32 + MAX30102 system for non-invasive hemoglobin estimation using PPG.",
+
     focus:
       "ESP32-based acquisition → PPG processing → feature extraction → regression",
+
     tech: ["ESP32", "MAX30102", "Python", "XGBoost"],
+
     status: "Currently building",
+
+    metrics:
+      "1,024 samples · 50 Hz · R Ratio: 0.7376 · hardware cost < ₹1,000",
   },
 
   {
     number: "02",
     title: "Smart Shelf\nInventory",
     year: "2025",
-    image: "/images/projects/shelf.jpg",
+    image: "/images/projects/shelf.png",
+
     tagline:
       "A vision system that sees what’s on the shelf — and what’s running out.",
+
     description:
       "A multi-class computer vision system that detects products, counts visible inventory, checks stock thresholds, and raises low-stock alerts in real time.",
+
+    shortDescription:
+      "YOLOv8 system for product detection, counting, and low-stock alerts.",
+
     focus:
       "Detection → counting → threshold checking → low-stock alerts",
+
     tech: ["Python", "YOLOv8", "OpenCV", "Gradio"],
+
     status: "Built",
-  },
 
-  {
-    number: "03",
-    title: "DSA\nAdventure",
-    year: "2026",
-    image: "/images/projects/dsa.jpg",
-    tagline:
-      "Turning data structures and algorithms into a progression-based learning experience.",
-    description:
-      "An interactive learning platform built around visual gates, trials, progression, and playful interactions designed to make DSA feel more approachable.",
-    focus:
-      "Visual learning → progression → interaction → practice",
-    tech: ["Next.js", "TypeScript", "Tailwind", "Motion"],
-    status: "Currently building",
-  },
+    github:
+      "https://github.com/shanumsharief/smart-shelf-inventory",
 
-  {
-    number: "04",
-    title: "F1 Performance\nAnalysis",
-    year: "2026",
-    image: "/images/projects/f1.jpg",
-    tagline:
-      "Exploring the patterns behind race performance, consistency, and results.",
-    description:
-      "A data analysis project using Formula 1 race and driver data to explore performance patterns through statistical analysis and visualisation.",
-    focus:
-      "Race data → performance analysis → patterns → visualisation",
-    tech: ["Python", "Pandas", "NumPy", "Matplotlib"],
-    status: "In progress",
+    demo:
+      "https://github.com/shanumsharief/smart-shelf-inventory/blob/main/demo/demo.jpeg",
+
+    demoImage:
+      "https://raw.githubusercontent.com/shanumsharief/smart-shelf-inventory/main/demo/demo.jpeg",
+
+    metrics:
+      "Validation: 26.15% mAP@50 · 14.27% mAP@50–95",
   },
 ];
 
 export default function ProjectsSection() {
   const [flipped, setFlipped] = useState<number | null>(null);
+
   const [selectedProject, setSelectedProject] =
     useState<Project | null>(null);
 
@@ -142,7 +149,16 @@ export default function ProjectsSection() {
                     <div className="project-image-wrap">
                       <img
                         src={project.image}
-                        alt={project.title.replace("\n", " ")}
+                        alt={project.title.replace(
+                          "\n",
+                          " "
+                        )}
+                        style={{
+                          objectPosition:
+                            project.number === "01"
+                              ? "10% 100%"
+                              : "80% 70%",
+                        }}
                       />
 
                       <span className="project-photo-number">
@@ -218,7 +234,7 @@ export default function ProjectsSection() {
                     </h3>
 
                     <p className="project-description">
-                      {project.description}
+                      {project.shortDescription}
                     </p>
 
                     <div className="project-tech project-tech-back">
@@ -242,7 +258,9 @@ export default function ProjectsSection() {
                       <button
                         type="button"
                         className="project-link"
-                        onClick={() => openProject(project)}
+                        onClick={() =>
+                          openProject(project)
+                        }
                       >
                         VIEW PROJECT ↗
                       </button>
@@ -336,6 +354,27 @@ export default function ProjectsSection() {
               </p>
             </div>
 
+            {/* DEMO IMAGE */}
+            {selectedProject.demoImage && (
+              <div className="postcard-section">
+                <span className="postcard-label">
+                  DEMO
+                </span>
+
+                <img
+                  src={selectedProject.demoImage}
+                  alt="Smart Shelf Inventory demo"
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    height: "auto",
+                    marginTop: "14px",
+                    objectFit: "contain",
+                  }}
+                />
+              </div>
+            )}
+
             {/* FOCUS */}
             <div className="postcard-section">
               <span className="postcard-label">
@@ -346,6 +385,19 @@ export default function ProjectsSection() {
                 {selectedProject.focus}
               </p>
             </div>
+
+            {/* RESULTS */}
+            {selectedProject.metrics && (
+              <div className="postcard-section">
+                <span className="postcard-label">
+                  RESULTS
+                </span>
+
+                <p>
+                  {selectedProject.metrics}
+                </p>
+              </div>
+            )}
 
             {/* STACK */}
             <div className="postcard-section">
@@ -372,6 +424,48 @@ export default function ProjectsSection() {
                 {selectedProject.status}
               </span>
             </div>
+
+            {/* LINKS */}
+            {(selectedProject.github ||
+              selectedProject.demo) && (
+              <div className="postcard-section">
+                <span className="postcard-label">
+                  LINKS
+                </span>
+
+                <div
+                  className="project-link-group"
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    alignItems: "center",
+                    gap: "32px",
+                  }}
+                >
+                  {selectedProject.github && (
+                    <a
+                      href={selectedProject.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                    >
+                      GITHUB ↗
+                    </a>
+                  )}
+
+                  {selectedProject.demo && (
+                    <a
+                      href={selectedProject.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                    >
+                      VIEW DEMO ↗
+                    </a>
+                  )}
+                </div>
+              </div>
+            )}
 
             {/* FOOTER */}
             <div className="postcard-footer">

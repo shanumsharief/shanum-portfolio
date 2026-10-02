@@ -32,10 +32,8 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
-
   background: var(--cream);
   color: var(--dark-brown);
-
   overflow-x: hidden;
 }
 
@@ -53,7 +51,6 @@ a {
   top: 0;
   left: 0;
   right: 0;
-
   z-index: 50;
 
   display: flex;
@@ -63,12 +60,10 @@ a {
   padding: 1.1rem 2rem;
 
   background: rgba(255, 248, 202, 0.92);
-
   backdrop-filter: blur(6px);
 
   opacity: 0;
   transform: translateY(-10px);
-
   pointer-events: none;
 
   transition:
@@ -110,7 +105,6 @@ a {
 
 .hero {
   position: fixed;
-
   top: 0;
   left: 0;
   right: 0;
@@ -142,11 +136,8 @@ a {
   margin: 0;
 
   font-family: "Space Mono", monospace;
-
   font-size: clamp(13px, 1.3vw, 20px);
-
   font-weight: 400;
-
   line-height: 1.4;
 
   color: var(--burgundy);
@@ -183,13 +174,10 @@ a {
   margin: 7vh 0 0;
 
   font-family: "Fraunces", Georgia, serif;
-
   font-size: clamp(80px, 11vw, 185px);
-
   font-weight: 600;
 
   letter-spacing: 2px;
-
   line-height: 0.93;
 
   color: var(--dark-brown);
@@ -199,9 +187,7 @@ a {
   margin-top: 8vh;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: clamp(14px, 1.3vw, 21px);
-
   line-height: 1.6;
 }
 
@@ -211,29 +197,23 @@ a {
 
 .home-actions {
   display: flex;
-
   align-items: center;
-
   gap: 32px;
 
   margin-top: auto;
-
   padding-top: 8vh;
 }
 
 .home-primary {
   display: inline-flex;
-
   align-items: center;
 
   padding: 17px 30px;
 
   background: var(--burgundy);
-
   color: var(--cream);
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 14px;
 
   transition:
@@ -243,7 +223,6 @@ a {
 
 .home-primary:hover {
   transform: translateY(-3px);
-
   background: #560607;
 }
 
@@ -251,7 +230,6 @@ a {
   position: relative;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 14px;
 }
 
@@ -259,7 +237,6 @@ a {
   content: "";
 
   position: absolute;
-
   left: 0;
   right: 0;
   bottom: -8px;
@@ -286,7 +263,6 @@ a {
   padding: 0;
 
   border: 0;
-
   background: transparent;
 
   z-index: 20;
@@ -302,7 +278,6 @@ a {
 
 .ghost-button:hover .line-ghost-wrap {
   animation-play-state: paused;
-
   transform: scale(1.05) rotate(-2deg);
 }
 
@@ -310,11 +285,9 @@ a {
   fill: none;
 
   stroke: var(--dark-brown);
-
   stroke-width: 2.4;
 
   stroke-linejoin: round;
-
   stroke-linecap: round;
 }
 
@@ -322,11 +295,9 @@ a {
   fill: var(--botticelli);
 
   stroke: var(--dark-brown);
-
   stroke-width: 1.4;
 
   transform-box: fill-box;
-
   transform-origin: center;
 
   animation: ghostBlink 4.6s ease-in-out infinite;
@@ -334,7 +305,6 @@ a {
 
 .ghost-blush {
   fill: var(--burgundy);
-
   opacity: 0.45;
 }
 
@@ -404,7 +374,6 @@ a {
   margin: 0 0 12px;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 11px;
 
   color: var(--burgundy);
@@ -416,11 +385,9 @@ a {
   font-family: "Fraunces", Georgia, serif;
 
   font-size: clamp(75px, 8vw, 120px);
-
   font-weight: 500;
 
   line-height: 0.9;
-
   letter-spacing: -0.05em;
 
   color: var(--dark-brown);
@@ -432,9 +399,7 @@ a {
   margin-top: 50px;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 16px;
-
   line-height: 1.8;
 }
 
@@ -449,9 +414,7 @@ a {
   margin: 0 0 25px;
 
   font-family: "Fraunces", Georgia, serif;
-
   font-size: 34px;
-
   font-weight: 500;
 }
 
@@ -465,9 +428,7 @@ a {
 
 .about-side {
   display: flex;
-
   flex-direction: column;
-
   align-items: stretch;
 
   padding-top: 35px;
@@ -509,7 +470,6 @@ a {
 
 .photo-card-image {
   width: 100%;
-
   height: 370px;
 
   overflow: hidden;
@@ -552,9 +512,7 @@ a {
   margin: 0 0 22px;
 
   font-family: "Fraunces", Georgia, serif;
-
   font-size: 34px;
-
   font-weight: 500;
 
   color: var(--dark-brown);
@@ -568,9 +526,7 @@ a {
   margin-top: 16px;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 13px;
-
   line-height: 1.7;
 
   color: var(--dark-brown);
@@ -590,9 +546,7 @@ a {
   margin-top: 25px;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 11px;
-
   line-height: 1.7;
 
   color: var(--dark-brown);
@@ -620,7 +574,6 @@ a {
 
 .about-next-number {
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 13px;
 
   color: var(--burgundy);
@@ -634,7 +587,6 @@ a {
   margin: 0 0 25px;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 13px;
 
   letter-spacing: 0.08em;
@@ -648,11 +600,9 @@ a {
   font-family: "Fraunces", Georgia, serif;
 
   font-size: clamp(55px, 7vw, 95px);
-
   font-weight: 500;
 
   line-height: 0.95;
-
   letter-spacing: -0.04em;
 }
 
@@ -662,15 +612,12 @@ a {
   margin-top: 35px;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 16px;
-
   line-height: 1.8;
 }
 
 .about-next-tech {
   display: flex;
-
   flex-wrap: wrap;
 
   gap: 10px;
@@ -684,7 +631,6 @@ a {
   border: 1px solid rgba(45, 18, 13, 0.25);
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 10px;
 }
 
@@ -724,25 +670,21 @@ a {
 @keyframes overlayWipe {
   0% {
     transform: scaleY(0);
-
     transform-origin: bottom;
   }
 
   35% {
     transform: scaleY(1);
-
     transform-origin: bottom;
   }
 
   65% {
     transform: scaleY(1);
-
     transform-origin: top;
   }
 
   100% {
     transform: scaleY(0);
-
     transform-origin: top;
   }
 }
@@ -786,7 +728,6 @@ a {
   display: inline-block;
 
   width: 0.5em;
-
   height: 1em;
 
   margin-left: 0.3em;
@@ -828,7 +769,6 @@ a {
 
 .skills-inner {
   max-width: 1100px;
-
   margin: 0 auto;
 }
 
@@ -856,7 +796,6 @@ a {
   padding-top: 8px;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 12px;
 
   color: var(--burgundy);
@@ -866,7 +805,6 @@ a {
   margin: 0 0 18px;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 12px;
 
   letter-spacing: 0.1em;
@@ -880,11 +818,9 @@ a {
   font-family: "Fraunces", Georgia, serif;
 
   font-size: clamp(65px, 8vw, 110px);
-
   font-weight: 500;
 
   line-height: 0.88;
-
   letter-spacing: -0.05em;
 
   color: var(--dark-brown);
@@ -896,9 +832,7 @@ a {
   max-width: 300px;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 13px;
-
   line-height: 1.8;
 
   color: var(--dark-brown);
@@ -951,7 +885,9 @@ a {
 
   border-color: rgba(45, 18, 13, 0.28);
 
-  transform: translateY(-6px) rotate(-0.4deg);
+  transform:
+    translateY(-6px)
+    rotate(-0.4deg);
 
   transition:
     transform 0.25s ease,
@@ -960,15 +896,21 @@ a {
 }
 
 .skill-card:nth-child(2):hover {
-  transform: translateY(-6px) rotate(0.4deg);
+  transform:
+    translateY(-6px)
+    rotate(0.4deg);
 }
 
 .skill-card:nth-child(3):hover {
-  transform: translateY(-6px) rotate(0.3deg);
+  transform:
+    translateY(-6px)
+    rotate(0.3deg);
 }
 
 .skill-card:nth-child(4):hover {
-  transform: translateY(-6px) rotate(-0.3deg);
+  transform:
+    translateY(-6px)
+    rotate(-0.3deg);
 }
 
 /* =========================================
@@ -986,7 +928,6 @@ a {
 
 .skill-card-number {
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 11px;
 
   color: var(--burgundy);
@@ -994,7 +935,6 @@ a {
 
 .skill-card-note {
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 9px;
 
   color: rgba(45, 18, 13, 0.5);
@@ -1016,11 +956,9 @@ a {
   font-family: "Fraunces", Georgia, serif;
 
   font-size: clamp(34px, 4vw, 52px);
-
   font-weight: 500;
 
   line-height: 0.95;
-
   letter-spacing: -0.035em;
 
   color: var(--dark-brown);
@@ -1028,7 +966,6 @@ a {
 
 .skill-list {
   display: flex;
-
   flex-wrap: wrap;
 
   gap: 8px;
@@ -1042,7 +979,6 @@ a {
   border: 1px solid rgba(45, 18, 13, 0.18);
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 9px;
 
   color: var(--dark-brown);
@@ -1064,11 +1000,9 @@ a {
   position: absolute;
 
   right: 28px;
-
   bottom: 25px;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 18px;
 
   opacity: 0.3;
@@ -1092,7 +1026,6 @@ a {
   margin: 25px 0 0;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 9px;
 
   letter-spacing: 0.08em;
@@ -1124,7 +1057,6 @@ a {
 
 .projects-inner {
   max-width: 1100px;
-
   margin: 0 auto;
 }
 
@@ -1152,7 +1084,6 @@ a {
   padding-top: 8px;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 12px;
 
   color: var(--burgundy);
@@ -1162,7 +1093,6 @@ a {
   margin: 0 0 18px;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 12px;
 
   letter-spacing: 0.1em;
@@ -1176,11 +1106,9 @@ a {
   font-family: "Fraunces", Georgia, serif;
 
   font-size: clamp(65px, 8vw, 110px);
-
   font-weight: 500;
 
   line-height: 0.88;
-
   letter-spacing: -0.05em;
 
   color: var(--dark-brown);
@@ -1192,9 +1120,7 @@ a {
   max-width: 300px;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 13px;
-
   line-height: 1.8;
 
   color: var(--dark-brown);
@@ -1244,14 +1170,6 @@ a {
   --rotation: 1.5deg;
 }
 
-.project-polaroid:nth-child(3) {
-  --rotation: -1deg;
-}
-
-.project-polaroid:nth-child(4) {
-  --rotation: 2deg;
-}
-
 .projects-grid:has(.project-polaroid:hover)
   .project-polaroid:not(:hover) {
   opacity: 0.58;
@@ -1283,8 +1201,10 @@ a {
 
   transform-style: preserve-3d;
 
+  transform-origin: center;
+
   transition:
-    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .project-polaroid.is-flipped .project-card-inner {
@@ -1295,6 +1215,9 @@ a {
   position: absolute;
 
   inset: 0;
+
+  width: 100%;
+  height: 100%;
 
   padding: 14px;
 
@@ -1307,21 +1230,30 @@ a {
     0 2px 6px rgba(45, 18, 13, 0.08);
 
   backface-visibility: hidden;
-
   -webkit-backface-visibility: hidden;
+
+  transform-style: preserve-3d;
 
   text-align: left;
 }
 
-/* =========================================
-   PROJECT FRONT
-========================================= */
-
 .project-card-front {
-  display: flex;
+  transform: rotateY(0deg);
 
+  display: flex;
   flex-direction: column;
 }
+
+.project-card-back {
+  transform: rotateY(180deg);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================
+   PROJECT FRONT IMAGE
+========================================= */
 
 .project-image-wrap {
   position: relative;
@@ -1361,7 +1293,6 @@ a {
   background: var(--cream);
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 9px;
 
   color: var(--dark-brown);
@@ -1375,7 +1306,6 @@ a {
   display: flex;
 
   justify-content: space-between;
-
   align-items: flex-end;
 
   gap: 20px;
@@ -1393,11 +1323,9 @@ a {
   font-family: "Fraunces", Georgia, serif;
 
   font-size: clamp(28px, 3vw, 40px);
-
   font-weight: 500;
 
   line-height: 0.93;
-
   letter-spacing: -0.03em;
 
   color: var(--dark-brown);
@@ -1407,7 +1335,6 @@ a {
   margin: 12px 0 0;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 9px;
 
   color: var(--burgundy);
@@ -1417,7 +1344,6 @@ a {
   flex-shrink: 0;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 18px;
 
   color: rgba(45, 18, 13, 0.4);
@@ -1461,7 +1387,6 @@ a {
   opacity: 1;
 
   padding-top: 10px;
-
   padding-bottom: 50px;
 
   transform: translateY(0);
@@ -1471,10 +1396,33 @@ a {
   margin: 0;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 10px;
 
   line-height: 1.7;
+
+  color: var(--dark-brown);
+}
+
+/* =========================================
+   PROJECT TECH
+========================================= */
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin-top: 14px;
+}
+
+.project-tech span {
+  padding: 5px 7px;
+
+  border: 1px solid rgba(45, 18, 13, 0.18);
+
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
 
   color: var(--dark-brown);
 }
@@ -1487,10 +1435,9 @@ a {
   position: absolute;
 
   left: 20px;
-
   bottom: 18px;
 
-  z-index: 10;
+  z-index: 50;
 
   margin: 0;
 
@@ -1503,7 +1450,6 @@ a {
   background: transparent;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 8px;
 
   color: var(--dark-brown);
@@ -1511,7 +1457,6 @@ a {
   cursor: pointer;
 
   opacity: 0;
-
   pointer-events: none;
 
   transform: translateY(4px);
@@ -1529,47 +1474,19 @@ a {
   transform: translateY(0);
 }
 
+.project-polaroid.is-flipped .project-flip-button {
+  opacity: 0;
+
+  pointer-events: none;
+}
+
 .project-flip-button:hover {
   transform: translateX(4px) !important;
 }
 
 /* =========================================
-   PROJECT TECH
-========================================= */
-
-.project-tech {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 6px;
-
-  margin-top: 14px;
-}
-
-.project-tech span {
-  padding: 5px 7px;
-
-  border: 1px solid rgba(45, 18, 13, 0.18);
-
-  font-family: "IBM Plex Mono", monospace;
-
-  font-size: 8px;
-
-  color: var(--dark-brown);
-}
-
-/* =========================================
    PROJECT BACK
 ========================================= */
-
-.project-card-back {
-  display: flex;
-
-  flex-direction: column;
-
-  transform: rotateY(180deg);
-}
 
 .project-back-top {
   display: flex;
@@ -1577,7 +1494,6 @@ a {
   justify-content: space-between;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 9px;
 
   color: var(--burgundy);
@@ -1589,11 +1505,9 @@ a {
   font-family: "Fraunces", Georgia, serif;
 
   font-size: clamp(32px, 4vw, 52px);
-
   font-weight: 500;
 
   line-height: 0.93;
-
   letter-spacing: -0.035em;
 
   color: var(--dark-brown);
@@ -1605,12 +1519,24 @@ a {
   margin: 30px 0 0;
 
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 12px;
 
   line-height: 1.8;
 
   color: var(--dark-brown);
+}
+
+.project-metrics {
+  max-width: 470px;
+
+  margin: 18px 0 0;
+
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+
+  line-height: 1.6;
+
+  color: var(--burgundy);
 }
 
 .project-tech-back {
@@ -1626,9 +1552,23 @@ a {
 
   align-items: center;
 
+  justify-content: space-between;
+
   gap: 24px;
 
   margin-top: 25px;
+}
+
+.project-link-group {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 18px;
 }
 
 .project-back-button,
@@ -1643,6 +1583,8 @@ a {
 }
 
 .project-back-button {
+  flex-shrink: 0;
+
   padding: 0;
 
   border: 0;
@@ -1730,7 +1672,6 @@ a {
   margin: 0 auto;
 
   display: flex;
-
   flex-direction: column;
 }
 
@@ -1768,11 +1709,9 @@ a {
   font-family: "Fraunces", Georgia, serif;
 
   font-size: clamp(65px, 8vw, 115px);
-
   font-weight: 500;
 
   line-height: 0.88;
-
   letter-spacing: -0.05em;
 
   color: var(--cream);
@@ -1897,7 +1836,6 @@ a {
   .project-polaroid,
   .project-card-inner {
     animation: none;
-
     transition: none;
   }
 }
@@ -2121,6 +2059,30 @@ a {
     font-size: 36px;
   }
 
+  .project-back-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .project-link-group {
+    justify-content: flex-start;
+  }
+
+  .project-flip-button {
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform: translateY(0);
+  }
+
+  .project-polaroid.is-flipped .project-flip-button {
+    opacity: 0;
+
+    pointer-events: none;
+  }
+
   .projects-note {
     text-align: left;
   }
@@ -2155,6 +2117,30 @@ a {
 
   .contact-footer {
     margin-top: 60px;
+  }
+
+  /* POSTCARD */
+
+  .project-postcard-overlay {
+    padding: 18px;
+  }
+
+  .project-postcard {
+    padding: 34px 26px 26px;
+  }
+
+  .project-postcard h3 {
+    font-size: clamp(42px, 12vw, 70px);
+  }
+
+  .postcard-stamp {
+    display: none;
+  }
+
+  .postcard-status {
+    flex-direction: column;
+
+    gap: 4px;
   }
 }
 
@@ -2226,59 +2212,6 @@ a {
 
   color: rgba(255, 248, 202, 0.55);
 }
-/* =========================================
-   PROJECT FLIP BUTTON
-========================================= */
-
-.project-flip-button {
-  position: absolute;
-
-  left: 20px;
-  bottom: 18px;
-
-  z-index: 30;
-
-  margin: 0;
-  padding: 0 0 4px;
-
-  border: 0;
-  border-bottom: 1px solid var(--dark-brown);
-
-  background: transparent;
-
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 8px;
-  color: var(--dark-brown);
-
-  cursor: pointer;
-
-  opacity: 0;
-  pointer-events: none;
-
-  transform: translateY(4px);
-
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
-}
-
-/* Show flip only on the front */
-.project-polaroid:hover .project-flip-button {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-/* Hide it completely once the card is flipped */
-.project-polaroid.is-flipped .project-flip-button {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Small hover movement */
-.project-flip-button:hover {
-  transform: translateX(4px) !important;
-}
 
 /* =========================================
    PROJECT POSTCARD
@@ -2339,7 +2272,8 @@ a {
     translateY(18px)
     scale(0.96);
 
-  animation: postcardIn 0.45s
+  animation:
+    postcardIn 0.45s
     cubic-bezier(0.22, 1, 0.36, 1)
     forwards;
 }
@@ -2488,7 +2422,8 @@ a {
   gap: 7px;
 }
 
-.postcard-tech span {
+.postcard-tech span,
+.postcard-tech a {
   padding: 6px 8px;
 
   border: 1px solid rgba(45, 18, 13, 0.18);
@@ -2498,6 +2433,20 @@ a {
   font-size: 8px;
 
   color: var(--dark-brown);
+}
+
+.postcard-tech a {
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.postcard-tech a:hover {
+  transform: translateY(-2px);
+
+  opacity: 0.65;
 }
 
 .postcard-status {
@@ -2555,6 +2504,18 @@ a {
 
   cursor: pointer;
 }
+
+/* =========================================
+   POSTCARD LINKS
+========================================= */
+
+.postcard-project-links {
+  margin-top: 26px;
+}
+
+/* =========================================
+   MOBILE POSTCARD
+========================================= */
 
 @media (max-width: 800px) {
   .project-postcard-overlay {

@@ -170,6 +170,9 @@
   .block {
     display: block;
   }
+  .flex {
+    display: flex;
+  }
   .hidden {
     display: none;
   }
@@ -747,19 +750,23 @@ a {
 .skill-card:hover {
   background: var(--botticelli);
   border-color: rgba(45, 18, 13, 0.28);
-  transform: translateY(-6px) rotate(-0.4deg);
+  transform: translateY(-6px)
+    rotate(-0.4deg);
   transition: transform 0.25s ease,
     background 0.25s ease,
     border-color 0.25s ease;
 }
 .skill-card:nth-child(2):hover {
-  transform: translateY(-6px) rotate(0.4deg);
+  transform: translateY(-6px)
+    rotate(0.4deg);
 }
 .skill-card:nth-child(3):hover {
-  transform: translateY(-6px) rotate(0.3deg);
+  transform: translateY(-6px)
+    rotate(0.3deg);
 }
 .skill-card:nth-child(4):hover {
-  transform: translateY(-6px) rotate(-0.3deg);
+  transform: translateY(-6px)
+    rotate(-0.3deg);
 }
 .skill-card-top {
   display: flex;
@@ -911,12 +918,6 @@ a {
 .project-polaroid:nth-child(2) {
   --rotation: 1.5deg;
 }
-.project-polaroid:nth-child(3) {
-  --rotation: -1deg;
-}
-.project-polaroid:nth-child(4) {
-  --rotation: 2deg;
-}
 .projects-grid:has(.project-polaroid:hover)
   .project-polaroid:not(:hover) {
   opacity: 0.58;
@@ -934,7 +935,8 @@ a {
   width: 100%;
   aspect-ratio: 0.79;
   transform-style: preserve-3d;
-  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .project-polaroid.is-flipped .project-card-inner {
   transform: rotateY(180deg);
@@ -942,6 +944,8 @@ a {
 .project-card-face {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   padding: 14px;
   background: #fffdf0;
   border: 1px solid rgba(45, 18, 13, 0.08);
@@ -949,9 +953,16 @@ a {
     0 2px 6px rgba(45, 18, 13, 0.08);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
   text-align: left;
 }
 .project-card-front {
+  transform: rotateY(0deg);
+  display: flex;
+  flex-direction: column;
+}
+.project-card-back {
+  transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
 }
@@ -1044,11 +1055,24 @@ a {
   line-height: 1.7;
   color: var(--dark-brown);
 }
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+.project-tech span {
+  padding: 5px 7px;
+  border: 1px solid rgba(45, 18, 13, 0.18);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  color: var(--dark-brown);
+}
 .project-flip-button {
   position: absolute;
   left: 20px;
   bottom: 18px;
-  z-index: 10;
+  z-index: 50;
   margin: 0;
   padding: 0 0 4px;
   border: 0;
@@ -1069,26 +1093,12 @@ a {
   pointer-events: auto;
   transform: translateY(0);
 }
+.project-polaroid.is-flipped .project-flip-button {
+  opacity: 0;
+  pointer-events: none;
+}
 .project-flip-button:hover {
   transform: translateX(4px) !important;
-}
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 14px;
-}
-.project-tech span {
-  padding: 5px 7px;
-  border: 1px solid rgba(45, 18, 13, 0.18);
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 8px;
-  color: var(--dark-brown);
-}
-.project-card-back {
-  display: flex;
-  flex-direction: column;
-  transform: rotateY(180deg);
 }
 .project-back-top {
   display: flex;
@@ -1114,14 +1124,30 @@ a {
   line-height: 1.8;
   color: var(--dark-brown);
 }
+.project-metrics {
+  max-width: 470px;
+  margin: 18px 0 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  line-height: 1.6;
+  color: var(--burgundy);
+}
 .project-tech-back {
   margin-top: auto;
 }
 .project-back-actions {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 24px;
   margin-top: 25px;
+}
+.project-link-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
 }
 .project-back-button,
 .project-link {
@@ -1131,6 +1157,7 @@ a {
   cursor: pointer;
 }
 .project-back-button {
+  flex-shrink: 0;
   padding: 0;
   border: 0;
   background: transparent;
@@ -1426,6 +1453,23 @@ a {
   .project-card-content h3 {
     font-size: 36px;
   }
+  .project-back-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .project-link-group {
+    justify-content: flex-start;
+  }
+  .project-flip-button {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .project-polaroid.is-flipped .project-flip-button {
+    opacity: 0;
+    pointer-events: none;
+  }
   .projects-note {
     text-align: left;
   }
@@ -1449,6 +1493,22 @@ a {
   }
   .contact-footer {
     margin-top: 60px;
+  }
+  .project-postcard-overlay {
+    padding: 18px;
+  }
+  .project-postcard {
+    padding: 34px 26px 26px;
+  }
+  .project-postcard h3 {
+    font-size: clamp(42px, 12vw, 70px);
+  }
+  .postcard-stamp {
+    display: none;
+  }
+  .postcard-status {
+    flex-direction: column;
+    gap: 4px;
   }
 }
 @media (min-width: 801px) {
@@ -1493,38 +1553,6 @@ a {
   font-family: "IBM Plex Mono", monospace;
   font-size: 9px;
   color: rgba(255, 248, 202, 0.55);
-}
-.project-flip-button {
-  position: absolute;
-  left: 20px;
-  bottom: 18px;
-  z-index: 30;
-  margin: 0;
-  padding: 0 0 4px;
-  border: 0;
-  border-bottom: 1px solid var(--dark-brown);
-  background: transparent;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 8px;
-  color: var(--dark-brown);
-  cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(4px);
-  transition: opacity 0.25s ease,
-    transform 0.25s ease;
-}
-.project-polaroid:hover .project-flip-button {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-.project-polaroid.is-flipped .project-flip-button {
-  opacity: 0;
-  pointer-events: none;
-}
-.project-flip-button:hover {
-  transform: translateX(4px) !important;
 }
 .project-postcard-overlay {
   position: fixed;
@@ -1650,12 +1678,22 @@ a {
   flex-wrap: wrap;
   gap: 7px;
 }
-.postcard-tech span {
+.postcard-tech span,
+.postcard-tech a {
   padding: 6px 8px;
   border: 1px solid rgba(45, 18, 13, 0.18);
   font-family: "IBM Plex Mono", monospace;
   font-size: 8px;
   color: var(--dark-brown);
+}
+.postcard-tech a {
+  text-decoration: none;
+  transition: transform 0.2s ease,
+    opacity 0.2s ease;
+}
+.postcard-tech a:hover {
+  transform: translateY(-2px);
+  opacity: 0.65;
 }
 .postcard-status {
   display: flex;
@@ -1688,6 +1726,9 @@ a {
   font-size: 8px;
   color: var(--dark-brown);
   cursor: pointer;
+}
+.postcard-project-links {
+  margin-top: 26px;
 }
 @media (max-width: 800px) {
   .project-postcard-overlay {
