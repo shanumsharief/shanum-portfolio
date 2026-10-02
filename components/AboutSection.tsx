@@ -50,10 +50,9 @@ export default function AboutSection() {
 
           <div className="about-intro">
             <p>
-              I’m a 7th-semester Artificial Intelligence &amp;
-              Data Science student interested in building practical
-              systems with machine learning, computer vision, and data.
-            </p>
+  I’m an Artificial Intelligence &amp; Data Science student interested in
+  building practical systems with machine learning, computer vision, and data.
+</p>
           </div>
 
           <div className="education">

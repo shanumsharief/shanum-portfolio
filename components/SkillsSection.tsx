@@ -6,25 +6,25 @@ const skillGroups = [
   {
     number: "01",
     title: "Machine Learning",
-    skills: ["Python", "Scikit-learn", "TensorFlow", "PyTorch", "XGBoost"],
+    skills: ["Python", "Scikit-learn", "XGBoost"],
     note: "models & prediction",
   },
   {
     number: "02",
-    title: "Data",
-    skills: ["Pandas", "NumPy", "SQL", "MySQL", "Matplotlib"],
+    title: "Data & Analysis",
+    skills: ["Pandas", "NumPy", "Matplotlib", "SciPy"],
     note: "working with data",
   },
   {
     number: "03",
     title: "Computer Vision",
-    skills: ["OpenCV", "YOLOv8", "Image Processing", "Roboflow"],
+    skills: ["OpenCV", "YOLOv8", "Roboflow", "Gradio"],
     note: "seeing things differently",
   },
   {
     number: "04",
     title: "Tools",
-    skills: ["GitHub", "Jupyter", "VS Code", "Cursor"],
+    skills: ["GitHub", "Jupyter", "VS Code", "Arduino IDE"],
     note: "building & shipping",
   },
 ];
@@ -35,13 +35,11 @@ export default function SkillsSection() {
 
   useEffect(() => {
     const section = sectionRef.current;
-
     if (!section) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-
         if (!entry) return;
 
         if (entry.isIntersecting) {
@@ -49,16 +47,12 @@ export default function SkillsSection() {
           observer.disconnect();
         }
       },
-      {
-        threshold: 0.18,
-      }
+      { threshold: 0.18 }
     );
 
     observer.observe(section);
 
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -68,18 +62,11 @@ export default function SkillsSection() {
       className={`skills-section ${visible ? "skills-visible" : ""}`}
     >
       <div className="skills-inner">
-
-        {/* HEADER */}
         <div className="skills-header">
-          <div className="skills-number">
-            03
-          </div>
+          <div className="skills-number">03</div>
 
           <div className="skills-heading">
-            <p className="skills-kicker">
-              SKILLS
-            </p>
-
+            <p className="skills-kicker">SKILLS</p>
             <h2>
               What I
               <br />
@@ -93,7 +80,6 @@ export default function SkillsSection() {
           </p>
         </div>
 
-        {/* SKILL CARDS */}
         <div className="skills-grid">
           {skillGroups.map((group, index) => (
             <article
@@ -106,45 +92,28 @@ export default function SkillsSection() {
               }
             >
               <div className="skill-card-top">
-                <span className="skill-card-number">
-                  {group.number}
-                </span>
-
-                <span className="skill-card-note">
-                  {group.note}
-                </span>
+                <span className="skill-card-number">{group.number}</span>
+                <span className="skill-card-note">{group.note}</span>
               </div>
 
-              <h3>
-                {group.title}
-              </h3>
+              <h3>{group.title}</h3>
 
               <div className="skill-list">
                 {group.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="skill-pill"
-                  >
+                  <span key={skill} className="skill-pill">
                     {skill}
                   </span>
                 ))}
               </div>
 
-              <span
-                className="skill-arrow"
-                aria-hidden="true"
-              >
+              <span className="skill-arrow" aria-hidden="true">
                 ↗
               </span>
             </article>
           ))}
         </div>
 
-        {/* SMALL INTERACTION HINT */}
-        <p className="skills-footer-note">
-          hover to inspect
-        </p>
-
+        <p className="skills-footer-note">hover to inspect</p>
       </div>
     </section>
   );
