@@ -8,13 +8,11 @@ export default function AboutSection() {
 
   useEffect(() => {
     const section = sectionRef.current;
-
     if (!section) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-
         if (!entry) return;
 
         if (entry.isIntersecting) {
@@ -22,9 +20,7 @@ export default function AboutSection() {
           observer.disconnect();
         }
       },
-      {
-        threshold: 0.18,
-      }
+      { threshold: 0.18 }
     );
 
     observer.observe(section);
@@ -39,38 +35,27 @@ export default function AboutSection() {
       className={`about ${visible ? "about-visible" : ""}`}
     >
       <div className="about-layout">
-
-        {/* LEFT */}
         <div className="about-content">
           <p className="about-number">01</p>
 
-          <h1 className="about-title">
-            About
-          </h1>
+          <h1 className="about-title">About</h1>
 
           <div className="about-intro">
             <p>
-  Final-year BE Artificial Intelligence &amp; Data Science student.I build applied ML systems, from ESP32 sensor hardware and signal processing to computer vision and FastAPI services. I'm looking for internships and graduate roles in AI/ML and data. 
-</p>
+              I’m an Artificial Intelligence &amp; Data Science student
+              interested in building practical systems with machine learning,
+              computer vision, and data.
+            </p>
           </div>
 
           <div className="education">
             <h2>Education</h2>
-
-            <p>
-              BE — Artificial Intelligence &amp; Data Science
-            </p>
-
-            <p>
-              CGPA — 8.88
-            </p>
+            <p>BE — Artificial Intelligence &amp; Data Science</p>
+            <p>CGPA — 8.88</p>
           </div>
         </div>
 
-        {/* RIGHT */}
         <div className="about-side">
-
-          {/* POLAROID */}
           <div className="photo-card">
             <div className="photo-card-image">
               <img
@@ -80,7 +65,6 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* CONTACT */}
           <div className="contact-block">
             <h2>Contact</h2>
 
@@ -99,14 +83,9 @@ export default function AboutSection() {
             >
               GitHub ↗
             </a>
-
-        
           </div>
-
         </div>
       </div>
-
-      
     </section>
   );
 }
