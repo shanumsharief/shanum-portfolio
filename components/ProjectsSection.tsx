@@ -43,7 +43,7 @@ const projects: Project[] = [
     status: "Currently building",
 
     metrics:
-      "1,024 samples · 50 Hz · R Ratio: 0.7376 · hardware cost < ₹1,000",
+      "Phase 1 complete: clean 20 s Red/IR PPG at 50 Hz (1,024 samples) · hardware cost under ₹1,000",
   },
 
   {
@@ -79,6 +79,8 @@ const projects: Project[] = [
 
     metrics:
       "Validation: 26.15% mAP@50 · 14.27% mAP@50–95",
+
+      
   },
 ];
 
@@ -110,7 +112,7 @@ export default function ProjectsSection() {
           {/* HEADER */}
           <div className="projects-header">
             <div className="projects-number">
-              04
+              03
             </div>
 
             <div className="projects-heading">

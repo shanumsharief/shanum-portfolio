@@ -12,7 +12,7 @@ export default function Home() {
         <div className="home-inner">
 
           <p className="home-kicker">
-            &gt; building something that turns data into something useful
+            &gt;I build ML systems that turn sensor signals and images into decisions.
             <span className="typing-cursor" />
           </p>
 

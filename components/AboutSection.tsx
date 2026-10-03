@@ -50,8 +50,7 @@ export default function AboutSection() {
 
           <div className="about-intro">
             <p>
-  I’m an Artificial Intelligence &amp; Data Science student interested in
-  building practical systems with machine learning, computer vision, and data.
+  Final-year BE Artificial Intelligence &amp; Data Science student.I build applied ML systems, from ESP32 sensor hardware and signal processing to computer vision and FastAPI services. I'm looking for internships and graduate roles in AI/ML and data. 
 </p>
           </div>
 

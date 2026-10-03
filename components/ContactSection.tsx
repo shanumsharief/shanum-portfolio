@@ -4,7 +4,7 @@ export default function ContactSection() {
       <div className="contact-inner">
 
         <div className="contact-number">
-          05
+          04
         </div>
 
         <div className="contact-content">

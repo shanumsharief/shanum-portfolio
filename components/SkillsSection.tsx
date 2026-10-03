@@ -63,7 +63,7 @@ export default function SkillsSection() {
     >
       <div className="skills-inner">
         <div className="skills-header">
-          <div className="skills-number">03</div>
+          <div className="skills-number">02</div>
 
           <div className="skills-heading">
             <p className="skills-kicker">SKILLS</p>
